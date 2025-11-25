@@ -1,5 +1,7 @@
 FROM node:25
 
+ENV TZ=Europe/Sofia
+
 WORKDIR /usr/src/app
 
 COPY package*.json ./
