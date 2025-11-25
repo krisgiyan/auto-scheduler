@@ -1,0 +1,27 @@
+{
+  "name": "Auto Scheduler Dev Container",
+  "dockerComposeFile": "../docker-compose.yml",
+    "service": "scraper",
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {}
+  },
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "Anthropic.claude-code",
+        "ms-vscode.vscode-node-azure-pack",
+        "esbenp.prettier-vscode"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
+    }
+  },
+
+  "postCreateCommand": "npm install",
+
+  "forwardPorts": [4000, 5173],
+
+  "remoteUser": "node"
+}
