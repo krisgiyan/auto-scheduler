@@ -10,4 +10,5 @@ RUN npx playwright install --with-deps
 COPY . .
 
 # EXPOSE 4000
+
 CMD ["npm", "run" "start"]
