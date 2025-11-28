@@ -9,7 +9,7 @@ router.get('/nextlevel', async (req, res) => {
     res.json('Lesson booked successfully');
   } catch (err) {
     console.error(err);
-    res.status(500).json({ error: 'Scraping failed' });
+    res.status(500).json({ error: 'Booking failed' });
   }
 });
 

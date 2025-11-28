@@ -55,10 +55,9 @@ async function scrapeNextLevel() {
 
     // const domHtml = await page.content();
     // fs.writeFileSync('rendered.html', domHtml, 'utf8');
-    // const title = await page.title();
 
     await browser.close();
-    return { title, source_code: domHtml };
+    return true;
 }
 
 function addDays(date, days) {
