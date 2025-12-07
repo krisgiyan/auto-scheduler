@@ -11,6 +11,9 @@ async function scrapeNextLevel() {
     const page = await browser.newPage();
     const nextMonday = getNextMonday();
 
+    //wait exactly for midnight before proceeding
+    await waitUntilMidnight();
+
     await page.goto(`https://zaimov.nextlevelclub.bg/calendar?day=${nextMonday}+%u0433`);
 
     // Accept cookies
@@ -86,6 +89,23 @@ function getNextMonday() {
   const year = nextMonday.getFullYear();
 
   return `${day}.${month}.${year}`;
+}
+
+function waitUntilMidnight() {
+  return new Promise(resolve => {
+    const now = new Date();
+
+    const midnight = new Date(now);
+    midnight.setHours(0, 0, 0, 0);
+
+    if (now >= midnight) {
+      resolve();
+      return;
+    }
+
+    const msUntilMidnight = midnight.getTime() - now.getTime();
+    setTimeout(resolve, msUntilMidnight);
+  });
 }
 
 module.exports = { scrapeNextLevel };
