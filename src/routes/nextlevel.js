@@ -103,7 +103,7 @@ function waitUntilMidnight() {
       return;
     }
 
-    const msUntilMidnight = midnight.getTime() - now.getTime();
+    const msUntilMidnight = (midnight.getTime() - now.getTime()) + 2;
     setTimeout(resolve, msUntilMidnight);
   });
 }
