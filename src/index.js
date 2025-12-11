@@ -9,6 +9,8 @@ app.use('/scrape', scrape);
 app.get('/checktime', (req, res) => {
   const now = new Date();
 
+  //hahahaha
+
   res.json({
     iso: now.toISOString(), // UTC in ISO format
     local: now.toString(),  // Local representation (usually UTC unless TZ is set)
