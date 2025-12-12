@@ -95,15 +95,11 @@ function waitUntilMidnight() {
   return new Promise(resolve => {
     const now = new Date();
 
-    const midnight = new Date(now);
-    midnight.setHours(0, 0, 0, 0);
+    const nextMidnight = new Date(now);
+    nextMidnight.setHours(24, 0, 0, 0);
 
-    if (now >= midnight) {
-      resolve();
-      return;
-    }
+    const msUntilMidnight = nextMidnight.getTime() - now.getTime();
 
-    const msUntilMidnight = (midnight.getTime() - now.getTime()) + 2;
     setTimeout(resolve, msUntilMidnight);
   });
 }
